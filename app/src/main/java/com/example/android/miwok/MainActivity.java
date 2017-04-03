@@ -15,6 +15,7 @@
  */
 package com.example.android.miwok;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import static com.example.android.miwok.R.id.numbers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,33 +42,52 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Initialize views.
-        NumbersTextView = (TextView) findViewById(R.id.numbers);
+        NumbersTextView = (TextView) findViewById(numbers);
         FamilyMembersTextView = (TextView) findViewById(R.id.family);
         ColorsTextView = (TextView) findViewById(R.id.colors);
         PhrasesTextView = (TextView) findViewById(R.id.phrases);
-    }
 
-    public void openNumbersList(View view) {
-        // Start the activity connect to the specified class.
-        Intent i = new Intent(this, NumbersActivity.class);
-        startActivity(i);
-    }
+        // Set a click listener on that View
+        NumbersTextView.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers View is clicked on.
+            @Override
+            public void onClick(View view) {
+                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(numbersIntent);
+            }
+        });
 
-    public void openFamilyMembersList(View view) {
-        // Start the activity connect to the specified class.
-        Intent i = new Intent(this, FamilyActivity.class);
-        startActivity(i);
-    }
 
-    public void openColorsList(View view) {
-        // Start the activity connect to the specified class.
-        Intent i = new Intent(this, ColorsActivity.class);
-        startActivity(i);
-    }
+        // Set a click listener on that View
+        FamilyMembersTextView.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the family members View is clicked on.
+            @Override
+            public void onClick(View view) {
+                Intent familyMembersIntent = new Intent(MainActivity.this, FamilyActivity.class);
+                startActivity(familyMembersIntent);
+            }
+        });
 
-    public void openPhrasesList(View view) {
-        // Start the activity connect to the specified class.
-        Intent i = new Intent(this, PhrasesActivity.class);
-        startActivity(i);
+
+        // Set a click listener on that View
+        ColorsTextView.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the colors View is clicked on.
+            @Override
+            public void onClick(View view) {
+                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(colorsIntent);
+            }
+        });
+
+
+        // Set a click listener on that View
+        PhrasesTextView.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the phrases View is clicked on.
+            @Override
+            public void onClick(View view) {
+                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(phrasesIntent);
+            }
+        });
     }
 }
