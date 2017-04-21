@@ -32,7 +32,7 @@ public class ColorsActivity extends AppCompatActivity {
          * which the adapter will set to display a single word
          * (default and miwok translation).
          */
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_colors);
 
         /**
          * Find the ListView object in the view hierarchy of the activity_numbers.
